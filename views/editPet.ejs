@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Pet - Rainbow Centre for Pets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark" style="background-color:#6f42c1;">
+        <div class="container">
+            <a class="navbar-brand" href="/">🌈 Rainbow Centre for Pets</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-white" href="/pets">Back to Pets</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5" style="max-width: 500px;">
+        <h2 class="mb-4">Edit Pet: <%= pet.petName %></h2>
+
+        <form action="/editPet/<%= pet.petId %>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="petName" class="form-label">Pet Name:</label>
+                <input type="text" id="petName" name="petName" class="form-control" value="<%= pet.petName %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="species" class="form-label">Species:</label>
+                <select id="species" name="species" class="form-control" required>
+                    <option value="Dog" <% if (pet.species === 'Dog') { %> selected <% } %>>Dog</option>
+                    <option value="Cat" <% if (pet.species === 'Cat') { %> selected <% } %>>Cat</option>
+                    <option value="Bird" <% if (pet.species === 'Bird') { %> selected <% } %>>Bird</option>
+                    <option value="Rabbit" <% if (pet.species === 'Rabbit') { %> selected <% } %>>Rabbit</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="breed" class="form-label">Breed:</label>
+                <input type="text" id="breed" name="breed" class="form-control" value="<%= pet.breed %>">
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age (years):</label>
+                <input type="number" id="age" name="age" class="form-control" min="0" value="<%= pet.age %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="disabilityType" class="form-label">Disability Type:</label>
+                <input type="text" id="disabilityType" name="disabilityType" class="form-control" value="<%= pet.disabilityType %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Special Care Description:</label>
+                <textarea id="description" name="description" class="form-control" rows="3" required><%= pet.description %></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="adoptionStatus" class="form-label">Adoption Status:</label>
+                <select id="adoptionStatus" name="adoptionStatus" class="form-control" required>
+                    <option value="Available" <% if (pet.adoptionStatus === 'Available') { %> selected <% } %>>Available</option>
+                    <option value="Pending" <% if (pet.adoptionStatus === 'Pending') { %> selected <% } %>>Pending</option>
+                    <option value="Adopted" <% if (pet.adoptionStatus === 'Adopted') { %> selected <% } %>>Adopted</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Change Pet Photo (optional):</label>
+                <input type="file" id="image" name="image" class="form-control" accept="image/*">
+                <!-- keep track of the current image so it is not lost if no new photo is uploaded -->
+                <input type="hidden" name="currentImage" value="<%= pet.image %>">
+            </div>
+            <button type="submit" class="btn btn-warning w-100">Update Pet</button>
+        </form>
+    </div>
+</body>
+</html>
