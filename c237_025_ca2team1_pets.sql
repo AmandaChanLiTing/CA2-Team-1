@@ -35,7 +35,7 @@ CREATE TABLE `pets` (
   `adoptionStatus` varchar(255) NOT NULL,
   `image` varchar(50) NOT NULL,
   PRIMARY KEY (`petId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `pets` (
 
 LOCK TABLES `pets` WRITE;
 /*!40000 ALTER TABLE `pets` DISABLE KEYS */;
-INSERT INTO `pets` VALUES (1,'Hope','Dog','Pitbull','4','Blind','Blind in both eyes. Navigates well by scent and sound, needs a calm home without sudden furniture changes.','Available','pet_1784867370824.png'),(2,'Patch','Dog','Domestic Shorthair','2','Missing Limb','Missing front right leg after an accident. Fully mobile and playful, no special equipment needed.','Available','pet_1784867355730.jpeg'),(3,'Biscuit','Cat','Siamese','6','Deaf','Hearing impaired. Responds well to hand signals and vibration cues.','Pending','pet_1784867343399.jpeg');
+INSERT INTO `pets` VALUES (1,'Hope','Dog','Pitbull','4','Blind','Blind in both eyes. Navigates well by scent and sound, needs a calm home without sudden furniture changes.','Available','pet_1784881639915.png'),(2,'Patch','Dog','Domestic Shorthair','2','Missing Limb','Missing front right leg after an accident. Fully mobile and playful, no special equipment needed.','Available','pet_1784867355730.jpeg'),(3,'Biscuit','Cat','Siamese','5','Deaf','Hearing impaired. Responds well to hand signals and vibration cues.','Pending','pet_1784867343399.jpeg'),(4,'Coco','Dog','Pug','4','missing a limb','could not walk normally and rely on wheels that was provide to the pug','Available','pet_1784883915020.jpeg');
 /*!40000 ALTER TABLE `pets` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-24 12:47:04
+-- Dump completed on 2026-07-24 18:27:16
