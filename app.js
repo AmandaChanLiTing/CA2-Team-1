@@ -61,15 +61,6 @@ app.use(flash());
 app.set('view engine', 'ejs');
 
 // Middleware to check if user is logged in
-const isLoggedIn = (req, res, next) => {
-    if (req.session.user) {
-        next();
-    } else {
-        req.flash('error', 'Please log in to access this page.');
-        res.redirect('/login');
-    }
-};
-
 const checkAuthenticated = (req, res, next) => {
     if (req.session.user) {
         return next();
@@ -189,12 +180,7 @@ app.post('/login', (req, res) => {
         }
     });
 });
-// User's Dashboard 
-app.get('/pets', isLoggedIn, (req, res) => {
-    res.render('/pets', {
-        user: req.session.user
-    });
-});
+
 
 // Admin Dashboard
 app.get('/admin', checkAdmin, (req, res) => {
@@ -369,6 +355,8 @@ app.get('/deletePet/:id', checkAuthenticated, checkAdmin, (req, res) => {
 });
 
 // Start Server
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

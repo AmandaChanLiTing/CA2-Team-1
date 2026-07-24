@@ -63,7 +63,7 @@
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <% if (pets[i].image) { %>
-                            <img src="/images/<%= pets[i].image %>" class="card-img-top" alt="<%= pets[i].petName %>" style="height: 200px; object-fit: cover;">
+                            <img src="/images/<%= pets[i].image %>" class="card-img-top" alt="<%= pets[i].petName %>" style="height: 250px; object-fit: contain;">
                         <% } %>
                         <div class="card-body">
                             <h5 class="card-title"><%= pets[i].petName %>
@@ -72,7 +72,8 @@
                             <p class="card-text">
                                 Species: <%= pets[i].species %><br>
                                 Breed: <%= pets[i].breed %><br>
-                                Age: <%= pets[i].age %> years old
+                                Age: <%= pets[i].age %> years old <br>
+                                Disability: <%= pets[i].disabilityType %><br>
                             </p>
                             <a href="/pets/<%= pets[i].petId %>" class="btn btn-sm" style="background-color:#6f42c1;color:white;">View Profile</a>
                             <% if (user.role === 'admin') { %>
