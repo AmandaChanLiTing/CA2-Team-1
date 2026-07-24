@@ -34,28 +34,41 @@
         </div>
 
         <div class="text-center mt-4">
-            <img src="images/cats.jpeg"
-                 alt="Pet"
-                 class="img-fluid rounded shadow"
-                 style="max-width: 250px;">
+            <img src="images/cats.jpeg" alt="Pet" class="img-fluid rounded shadow" style="max-width: 250px;">
         </div>
 
         <div class="mt-4">
 
-            <% if (user.role==='admin' ) { %>
+            <a href="/pets" class="btn btn-success">
+            Browse Pets
+            </a>
+
+            <a href="/search" class="btn btn-info">
+                Search Pets
+            </a>
+
+            <% if (user.role === 'admin') { %>
+
                 <a href="/admin" class="btn btn-primary">
                     Manage Pet Centre
                 </a>
-                <% } %>
 
-                    <a href="/logout" class="btn btn-outline-danger">
-                        Logout
-                    </a>
-                </div>
-            </div>
+                <a href="/addPet" class="btn btn-success">
+                    Add Pet
+                </a>
+
+            <% } %>
+
+                <a href="/logout" class="btn btn-outline-danger">
+                    Logout
+                </a>
+
         </div>
+    </div>
+    </div>
 
-</div>
+    </div>
 
 </body>
+
 </html>

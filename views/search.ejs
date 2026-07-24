@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results - Rainbow Centre for Pets</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark" style="background-color:#6f42c1;">
+        <div class="container">
+            <a class="navbar-brand" href="/">🌈 Rainbow Centre for Pets</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-white" href="/pets">Back to Pets</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h2>Search Results</h2>
+
+        <!-- Search / Filter form -->
+        <form action="/search" method="GET" class="row g-2 mb-4">
+            <div class="col-md-4">
+                <input type="text" name="keyword" class="form-control" placeholder="Search name or disability..."
+                    value="<%= keyword ? keyword : '' %>">
+            </div>
+            <div class="col-md-3">
+                <select name="species" class="form-control">
+                    <option value="">All Species</option>
+                    <option value="Dog" <% if (species === 'Dog') { %> selected <% } %>>Dog</option>
+                    <option value="Cat" <% if (species === 'Cat') { %> selected <% } %>>Cat</option>
+                    <option value="Bird" <% if (species === 'Bird') { %> selected <% } %>>Bird</option>
+                    <option value="Rabbit" <% if (species === 'Rabbit') { %> selected <% } %>>Rabbit</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select name="adoptionStatus" class="form-control">
+                    <option value="">All Status</option>
+                    <option value="Available" <% if (adoptionStatus === 'Available') { %> selected <% } %>>Available</option>
+                    <option value="Pending" <% if (adoptionStatus === 'Pending') { %> selected <% } %>>Pending</option>
+                    <option value="Adopted" <% if (adoptionStatus === 'Adopted') { %> selected <% } %>>Adopted</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-outline-secondary w-100">Search</button>
+            </div>
+        </form>
+
+        <p class="text-muted"><%= pets.length %> pet(s) found.</p>
+
+        <div class="row">
+            <% for (let i = 0; i < pets.length; i++) { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <% if (pets[i].image) { %>
+                            <img src="/images/<%= pets[i].image %>" class="card-img-top" alt="<%= pets[i].petName %>" style="height: 200px; object-fit: cover;">
+                        <% } %>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= pets[i].petName %>
+                                <span class="badge bg-secondary"><%= pets[i].adoptionStatus %></span>
+                            </h5>
+                            <p class="card-text">
+                                Species: <%= pets[i].species %><br>
+                                Breed: <%= pets[i].breed %><br>
+                                Age: <%= pets[i].age %> years old
+                            </p>
+                            <a href="/pets/<%= pets[i].petId %>" class="btn btn-sm" style="background-color:#6f42c1;color:white;">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
