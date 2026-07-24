@@ -201,8 +201,6 @@ app.get('/logout', (req, res) => {
 });
 // ============================================================
 // BEDELIA'S PART -- Viewing and Displaying Information
-// (basic version included here only so the app runs end-to-end;
-//  NOT covered in the journal draft -- ask Bedelia to document it)
 // ============================================================
 
 app.get('/pets', checkAuthenticated, (req, res) => {
